@@ -1,7 +1,8 @@
 ---
 layout: default
+collection: pages
 ---
-# Projectos em adamento 
+# Projectos em andamento 
 
 ## 1. Capacitação em Programação para Mulheres
 Um programa que oferece cursos de programação e desenvolvimento de software para mulheres e meninas em Moçambique, com foco em linguagens de programação populares, desenvolvimento web e de aplicativos. Este projeto visa aumentar a participação feminina na área de tecnologia através de formação prática e acessível.

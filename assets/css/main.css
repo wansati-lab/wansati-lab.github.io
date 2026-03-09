@@ -160,8 +160,8 @@ header {
     background-image: url("../img/header.jpg");
     text-align: center;
     color: white;
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
+    /* filter: blur(4px);
+    -webkit-filter: blur(4px); */
 }
 
 header .header-content {
