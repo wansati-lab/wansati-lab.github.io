@@ -12,13 +12,13 @@ google_analytics:
 # (This can be commented out if not required.)
 social:
   facebook: "#"
-  twitter: "#"
-  google: "#"
-  instagram: "#"
+  twitter: "@wansatilab"
+  google: ""
+  instagram: "@wansatilab"
   pinterest: "#"
   snapchat: "#"
-  linkedin: "in/#"
-  email: "contact@wansatilab.org"
+  linkedin: "in/wansatilab"
+  email: "hello@wansatilab.org"
   github: "wansati-lab"
 
 # Build settings
