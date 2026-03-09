@@ -17,14 +17,14 @@
     });
 
     // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-        target: '.navbar-fixed-top',
+    new bootstrap.ScrollSpy(document.body, {
+        target: '#mainNav',
         offset: 51
-    })
+    });
 
     // Closes the Responsive Menu on Menu Item Click
     $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
+        $('.navbar-toggler:visible').click();
     });
 
     // Fit Text Plugin for Main Header
@@ -35,12 +35,21 @@
         }
     );
 
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
+    // Offset for Main Navigation - Custom sticky behavior
+    var navbar = document.getElementById('mainNav');
+    var stickyOffset = 100;
+    
+    function toggleStickyNavbar() {
+        if (window.pageYOffset >= stickyOffset) {
+            navbar.classList.add('navbar-sticky');
+            document.body.style.paddingTop = '70px';
+        } else {
+            navbar.classList.remove('navbar-sticky');
+            document.body.style.paddingTop = '0';
         }
-    })
+    }
+    
+    window.addEventListener('scroll', toggleStickyNavbar);
 
     // Initialize WOW.js Scrolling Animations
     new WOW().init();

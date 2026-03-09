@@ -353,3 +353,13 @@ img::-moz-selection {
 body {
     -webkit-tap-highlight-color: #222;
 }
+
+/* Custom sticky navbar styles */
+.navbar-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    transition: background-color 0.3s ease;
+}
