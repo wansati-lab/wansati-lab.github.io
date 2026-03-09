@@ -18,6 +18,8 @@ social:
   pinterest: "#"
   snapchat: "#"
   linkedin: "in/#"
+  email: "contact@wansatilab.org"
+  github: "wansati-lab"
 
 # Build settings
 markdown: kramdown
