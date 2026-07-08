@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wansati Lab — Portfólio de Impacto</title>
+    <!-- Google Fonts & Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --W: #9D2C85;
+            --Wlo:#db3a7f; /* logo *?
+            /* Wansati Deep Púrpura */
+            --Wm: #E55FB8;
+            /* Wansati Mid Púrpura */
+            --Wl: #2E9E6E;
+            /* Emerald Green Accent */
+            --Ws: #F9D7EF;
+            /* Soft Pink Tint */
+            --A: #E8702A;
+            /* Amber-Flame Accent */
+            --Al: #FAEADE;
+            /* Amber Light */
+            --G: #F7C948;
+            /* Gold Highlight (Cor do Logo/Impacto) */
+            --ink: #0D1F17;
+            --gray: #5A7066;
+            --pale: #F2F7F4;
+            --white: #FFFFFF;
+            --border: rgba(11, 61, 46, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--pale);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── UTILITY ── */
+        .serif {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .material-symbols-out-custom {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 4vw;
+            background: rgba(242, 247, 244, 0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: var(--Wlo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            overflow: hidden;
+        }
+
+        .nav-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: var(--W);
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--W);
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 55% 45%;
+            padding: 7rem 4vw 4rem;
+            gap: 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--W);
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            background: var(--Wm);
+            clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: 0;
+        }
+
+        .hero-left {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 3rem;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--G);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 1.8rem;
+            width: fit-content;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--G);
+            animation: glow 2.2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(1.4);
+            }
+        }
+
+        .hero-h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.8rem, 4.5vw, 4.8rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--G);
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 460px;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 100px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            background: var(--G);
+            color: var(--ink);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: opacity .2s, transform .15s;
+        }
+
+        .btn-gold:hover {
+            opacity: .9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-w {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 500;
+            font-size: 0.88rem;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            transition: border-color .2s, transform .15s;
+        }
+
+        .btn-outline-w:hover {
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            padding-left: 2rem;
+        }
+
+        .hstat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .hstat {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            padding: 1.4rem 1.2rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .hstat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.4rem;
+            line-height: 1;
+            color: var(--G);
+        }
+
+        .hstat-num sup {
+            font-size: 1.2rem;
+        }
+
+        .hstat-desc {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .hstat-wide {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hstat-wide-icon {
+            color: var(--G);
+            font-size: 2rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .hstat-wide-text h4 {
+            font-size: 0.9rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .hstat-wide-text p {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 2px;
+        }
+
+        .partners-strip {
+            background: var(--W);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.5rem 4vw;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .partners-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.5);
+            flex-shrink: 0;
+        }
+
+        .partner-logos {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .partner-logo {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 6px 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.03em;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .partner-logo input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            padding: 6rem 4vw;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--Wl);
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--Wl);
+            margin-bottom: 1rem;
+        }
+
+        h2.section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: var(--W);
+            margin-bottom: 1rem;
+        }
+
+        .section-lead {
+            font-size: 1rem;
+            color: var(--gray);
+            max-width: 580px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        /* ── SOBRE ── */
+        #sobre {
+            background: var(--white);
+        }
+
+        .sobre-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5vw;
+            align-items: start;
+        }
+
+        .sobre-values {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .value-row {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.1rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            transition: border-color .2s, background .2s;
+        }
+
+        .value-row:hover {
+            border-color: var(--Wl);
+            background: rgba(46, 158, 110, 0.05);
+        }
+
+        .value-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(46, 158, 110, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--Wl);
+            flex-shrink: 0;
+        }
+
+        .value-row h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--W);
+            margin-bottom: 2px;
+        }
+
+        .value-row p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            line-height: 1.55;
+        }
+
+        .sobre-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mission-card {
+            background: var(--W);
+            color: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .mission-card .label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--G);
+            margin-bottom: 0.8rem;
+        }
+
+        .mission-card p {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .province-card {
+            background: var(--pale);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .province-card .label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--W);
+            margin-bottom: 1rem;
+        }
+
+        .province-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .prov-tag {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 6px 8px;
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--W);
+            border: 1px solid var(--border);
+        }
+
+        /* ── PROJECTOS ── */
+        .project-block {
+            margin-bottom: 4rem;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .project-header {
+            padding: 3rem 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: start;
+            gap: 2rem;
+        }
+
+        .project-header.green-bg {
+            background: var(--W);
+            color: var(--white);
+        }
+
+        .project-header.amber-bg {
+            background: linear-gradient(135deg, #7A2A00 0%, var(--A) 100%);
+            color: var(--white);
+        }
+
+        .project-header.teal-bg {
+            background: linear-gradient(135deg, #074060 0%, #1A8CA8 100%);
+            color: var(--white);
+        }
+
+        .project-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 0.8rem;
+        }
+
+        .green-bg .project-tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--G);
+        }
+
+        .amber-bg .project-tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFD89A;
+        }
+
+        .teal-bg .project-tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: #B0EAF7;
+        }
+
+        .project-header h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--white);
+        }
+
+        .project-header p {
+            font-size: 0.9rem;
+            line-height: 1.75;
+            margin-top: 0.8rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .project-nums {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            min-width: 160px;
+        }
+
+        .pnum {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 14px;
+        }
+
+        .pnum-val {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--G);
+        }
+
+        .pnum-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 3px;
+        }
+
+        .project-body {
+            padding: 2rem 3rem;
+        }
+
+        .deliv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .deliv-item {
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--pale);
+        }
+
+        .deliv-item .di-label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--Wl);
+            margin-bottom: 4px;
+        }
+
+        .deliv-item p {
+            font-size: 0.82rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .deliv-item strong {
+            color: var(--W);
+            display: block;
+            font-size: 0.88rem;
+        }
+
+        /* Bloco de Gênero Incorporado */
+        .gender-methodology-box {
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            border-left: 4px solid var(--Wl);
+            background: var(--pale);
+            border-radius: 0 14px 14px 0;
+        }
+
+        .gender-methodology-box h5 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--W);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .gender-methodology-box p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .gender-methodology-box ul {
+            padding-left: 1.1rem;
+            font-size: 0.78rem;
+            color: var(--gray);
+        }
+
+        .gender-methodology-box li {
+            margin-bottom: 4px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-slot {
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            border: 0px dashed rgba(46, 158, 110, 0.35);
+            background: var(--pale);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background .2s;
+        }
+
+        .gallery-slot:hover {
+            background: rgba(46, 158, 110, 0.05);
+        }
+
+        .gallery-slot input[type=file] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .gallery-slot .placeholder-logo {
+            font-size: 2.5rem;
+            color: var(--Wl);
+            opacity: 0.35;
+            z-index: 1;
+        }
+
+        .gallery-slot img.preview {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        /* ── CASOS DE SUCESSO ── */
+        #casos {
+            background: var(--white);
+        }
+
+        .caso-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .caso-card {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .caso-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(11, 61, 46, 0.1);
+        }
+
+        .caso-img {
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .caso-img.c1 {
+            background: linear-gradient(135deg, var(--Ws), #A8E6C8);
+        }
+
+        .caso-img.c2 {
+            background: linear-gradient(135deg, var(--Al), #FDD5A8);
+        }
+
+        .caso-img.c3 {
+            background: linear-gradient(135deg, #D4E8F5, #A8C8E8);
+        }
+
+        .caso-img-icon {
+            font-size: 3.8rem;
+            color: var(--W);
+            z-index: 1;
+            transition: opacity 0.2s;
+        }
+
+        .caso-img-label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--W);
+            color: var(--G);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 3px 10px;
+            border-radius: 100px;
+            z-index: 3;
+        }
+
+        .caso-gallery {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .caso-gallery input[type=file] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .caso-gallery img.preview {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+        }
+
+        .caso-body {
+            padding: 1.5rem;
+            background: var(--white);
+        }
+
+        .caso-body .eyebrow {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--A);
+            margin-bottom: 0.5rem;
+        }
+
+        .caso-body h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            color: var(--W);
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        .caso-body p {
+            font-size: 0.82rem;
+            color: var(--gray);
+            line-height: 1.65;
+        }
+
+        .caso-quote {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            border-left: 3px solid var(--Wl);
+            background: var(--pale);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .caso-quote p {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--W);
+        }
+
+        .caso-quote span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gray);
+            display: block;
+            margin-top: 4px;
+        }
+
+        /* ── IMPACTO ── */
+        #impacto {
+            background: var(--W);
+            color: var(--white);
+        }
+
+        #impacto .section-eyebrow {
+            color: var(--G);
+            border-color: var(--G);
+        }
+
+        #impacto h2.section-title {
+            color: var(--white);
+        }
+
+        #impacto .section-lead {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .impact-numbers {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .icard {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .icard-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3.2rem;
+            line-height: 1;
+            color: var(--G);
+        }
+
+        .icard-num sup {
+            font-size: 1.5rem;
+        }
+
+        .icard-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        .impact-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .impact-timeline {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tl-item {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 1.2rem;
+            padding-bottom: 2rem;
+            position: relative;
+        }
+
+        .tl-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 29px;
+            top: 28px;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .tl-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--G);
+            border: 3px solid var(--W);
+            margin-top: 6px;
+            margin-left: 23px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-year {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--G);
+            margin-top: 1px;
+            text-align: right;
+        }
+
+        .tl-content h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .tl-content p {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        .impact-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .bar-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+
+        .bar-pct {
+            color: var(--G);
+            font-weight: 600;
+        }
+
+        .bar-track {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            background: linear-gradient(90deg, var(--Wl), var(--G));
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
+        }
+
+        /* ── PARCEIROS ── */
+        #parceiros {
+            background: var(--pale);
+        }
+
+        .parceiros-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .parceiro-card {
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            transition: border-color .2s, transform .2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parceiro-card:hover {
+            border-color: var(--Wl);
+            transform: translateY(-3px);
+        }
+
+        .parceiro-card input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .parceiro-icon {
+            height: 50px;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--W);
+            font-size: 1.1rem;
+        }
+
+        .parceiro-icon img {
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .parceiro-card p {
+            font-size: 0.75rem;
+            color: var(--gray);
+            line-height: 1.5;
+            margin-top: 8px;
+        }
+
+        .parceiro-type {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--Wl);
+            background: rgba(46, 158, 110, 0.1);
+            padding: 3px 10px;
+            border-radius: 100px;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* ── EQUIPA ── */
+        #equipa {
+            background: var(--white);
+        }
+
+        .equipa-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .equipa-card {
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: transform .2s;
+            background: var(--white);
+        }
+
+        .equipa-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .equipa-avatar {
+            height: 160px;
+            background: var(--Ws);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .equipa-avatar .material-symbols-out-custom {
+            font-size: 3.8rem;
+            color: var(--W);
+            z-index: 1;
+            transition: opacity 0.2s;
+        }
+
+        .equipa-photo-slot {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        .equipa-photo-slot input[type=file] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .equipa-photo-slot img.preview {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+        }
+
+        .equipa-body {
+            padding: 1.2rem;
+        }
+
+        .equipa-body h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--W);
+        }
+
+        .equipa-body .role {
+            font-size: 0.75rem;
+            color: var(--Wl);
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        .equipa-body p {
+            font-size: 0.78rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            line-height: 1.55;
+        }
+
+        /* ── DEPOIMENTOS ── */
+        #depoimentos {
+            background: var(--pale);
+        }
+
+        .dep-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .dep-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s;
+        }
+
+        .dep-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .dep-quote-mark {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            color: var(--Wl);
+            margin-bottom: 0.8rem;
+        }
+
+        .dep-card blockquote {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.75;
+            font-style: italic;
+            flex: 1;
+        }
+
+        .dep-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .dep-ava {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--Ws);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--Wl);
+            flex-shrink: 0;
+            color: var(--W);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dep-ava input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .dep-ava img.preview {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 2;
+        }
+
+        .dep-author-name {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--W);
+        }
+
+        .dep-author-role {
+            font-size: 0.72rem;
+            color: var(--gray);
+        }
+
+        /* ── CTA & FOOTER ── */
+        #cta-section {
+            background: var(--ink);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 4vw;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cta-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: var(--white);
+            max-width: 600px;
+            margin: 0.8rem auto 1.5rem;
+            line-height: 1.1;
+        }
+
+        #cta-section p {
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            font-size: 1rem;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            background: var(--ink);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 2.5rem 4vw;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-center {
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: flex-end;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--G);
+        }
+
+        .top-stripe {
+            height: 5px;
+            background: linear-gradient(90deg, var(--W) 0%, var(--Wl) 40%, var(--G) 70%, var(--A) 100%);
+        }
+
+        @media (max-width: 960px) {
+            #hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-right {
+                display: none;
+            }
+
+            .sobre-layout,
+            .impact-cols,
+            .equipa-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-numbers,
+            .parceiros-grid,
+            .caso-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .deliv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+
+            .project-header {
+                grid-template-columns: 1fr;
+            }
+
+            .project-nums {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .impact-numbers,
+            .parceiros-grid,
+            .caso-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-stripe"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-brand">
+            <div class="nav-mark" title="Wansati Lab">
+                <img src="assets/img/logo.jpg" alt="Wansati Lab Logo"">
+                <!-- <span class="material-symbols-out-custom" style="color:var(--G); font-size:1.3rem;">lab_profile</span> -->
+            </div>
+            <span class="nav-name">Wansati Lab</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#sobre">Missão</a></li>
+            <li><a href="#projectos">Projetos</a></li>
+            <li><a href="#impacto">Impacto</a></li>
+            <li><a href="#parceiros">Parceiros</a></li>
+            <li><a href="#equipa">Equipa</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-left">
+            <div class="hero-eyebrow">Moçambique · TICs · Inclusão de Género</div>
+            <h1 class="hero-h1">Mulheres<br>que <em>lideram</em><br>o digital</h1>
+            <p class="hero-desc">
+                A <strong>Wansati Lab</strong> é uma associação moçambicana dedicada a capacitar, inspirar e criar
+                oportunidades para mulheres e raparigas no sector das TICs, reduzindo a desigualdade de género e
+                impulsionando a inovação digital em todo o país.
+            </p>
+            <div class="hero-pills">
+                <span class="pill">MozDevz</span>
+                <span class="pill">Django Girls MZ</span>
+                <span class="pill">h2n</span>
+                <span class="pill">Coding Camp</span>
+                <span class="pill">PyLadies</span>
+            </div>
+            <div class="hero-cta">
+                <a href="#projectos" class="btn-gold">Ver os Nossos Projetos</a>
+                <a href="#impacto" class="btn-outline-w">Impacto & Números</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="hstat-grid">
+                <div class="hstat">
+                    <div class="hstat-num">5.000<sup>+</sup></div>
+                    <div class="hstat-desc">Jovens capacitadas em competências digitais e ferramentas de empregabilidade
+                    </div>
+                </div>
+                <div class="hstat">
+                    <div class="hstat-num">800<sup>+</sup></div>
+                    <div class="hstat-desc">Mulheres integradas em initiatives especializadas de inclusão digital</div>
+                </div>
+                <div class="hstat">
+                    <div class="hstat-num">13</div>
+                    <div class="hstat-desc">Edições Django Girls realizadas em Moçambique</div>
+                </div>
+                <div class="hstat">
+                    <div class="hstat-num">11</div>
+                    <div class="hstat-desc">Províncias cobertas com programas descentralizados</div>
+                </div>
+            </div>
+            <div class="hstat-wide">
+                <div class="hstat-wide-icon">
+                    <span class="material-symbols-out-custom" style="font-size: 2.2rem;">workspace_premium</span>
+                </div>
+                <div class="hstat-wide-text">
+                    <h4>Parceiro de Referência Global</h4>
+                    <p>Co-execução de Code Like a Girl com os standards de qualidade de mercado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS STRIP -->
+    <div class="partners-strip">
+        <div class="partners-label">Parceiros Estratégicos</div>
+        <div class="partner-logos">
+            <div class="partner-logo" title="Clique para carregar imagem">
+                <input type="file" accept="image/*" onchange="previewPartner(this)">
+                <span>MozDevz</span>
+            </div>
+            <div class="partner-logo" title="Clique para carregar imagem">
+                <input type="file" accept="image/*" onchange="previewPartner(this)">
+                <span>PyLadies</span>
+            </div>
+            <div class="partner-logo" title="Clique para carregar imagem">
+                <input type="file" accept="image/*" onchange="previewPartner(this)">
+                <span>Django Girls</span>
+            </div>
+            <div class="partner-logo" title="Clique para carregar imagem">
+                <input type="file" accept="image/*" onchange="previewPartner(this)">
+                <span>h2n</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+        <div class="sobre-layout">
+            <div>
+                <span class="section-eyebrow">Quem Somos</span>
+                <h2 class="section-title">Uma associação feita<br>por e para mulheres</h2>
+                <p style="font-size:0.95rem; color:var(--gray); line-height:1.8; margin-bottom:1.5rem;">
+                    A <strong>Wansati Lab</strong> nasceu com uma convicção simples: as mulheres moçambicanas têm todo o
+                    talento para liderar o sector das TICs. O que faltava era acesso, formação de qualidade e uma
+                    comunidade de apoio.
+                </p>
+                <div class="sobre-values">
+                    <div class="value-row">
+                        <div class="value-icon">
+                            <span class="material-symbols-out-custom">school</span>
+                        </div>
+                        <div>
+                            <h4>Formação de Qualidade</h4>
+                            <p>Materiais didáticos desenvolvidos internamente, testados em campo e alinhados com padrões
+                                internacionais.</p>
+                        </div>
+                    </div>
+                    <div class="value-row">
+                        <div class="value-icon">
+                            <span class="material-symbols-out-custom">map</span>
+                        </div>
+                        <div>
+                            <h4>Alcance Descentralizado</h4>
+                            <p>Experiência consolidada na implementação nacional, chegando a comunidades onde o acesso à
+                                tecnologia é escasso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sobre-right">
+                <div class="mission-card">
+                    <div class="label">Nossa Missão</div>
+                    <p>Capacitar mulheres e meninas moçambicanas nas TICs, fornecendo formação, mentoria e oportunidades
+                        para que possam se destacar no sector tecnológico.</p>
+                </div>
+                <div class="province-card">
+                    <div class="label">Províncias de Atuação</div>
+                    <div class="province-grid">
+                        <div class="prov-tag">Maputo Cidade</div>
+                        <div class="prov-tag">Maputo Prov.</div>
+                        <div class="prov-tag">Gaza</div>
+                        <div class="prov-tag">Sofala</div>
+                        <div class="prov-tag">Nampula</div>
+                        <div class="prov-tag">Zambézia</div>
+                        <div class="prov-tag">Tete</div>
+                        <div class="prov-tag">Manica</div>
+                        <div class="prov-tag">Inhambane</div>
+                        <div class="prov-tag">Cabo Delgado</div>
+                        <div class="prov-tag">Niassa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTOS -->
+    <section id="projectos">
+        <span class="section-eyebrow">O Que Implementamos</span>
+        <h2 class="section-title">Projetos de Impacto</h2>
+        <p class="section-lead">Programas de referência implementados com rigor, escala e impacto mensurável em todo o
+            território moçambicano.</p>
+
+        <!-- CODING GIRLS -->
+        <div class="project-block">
+            <div class="project-header amber-bg">
+                <div>
+                    <div class="project-tag">MozDevz</div>
+                    <h3>Coding Girls</h3>
+                    <p>Programa de bootcamps de codificação de 5 dias, realizado presencialmente em escolas distribuídas
+                        pelas 11 províncias de Moçambique. A Wansati Lab foi responsável pela operacionalização
+                        pedagógica.</p>
+                </div>
+                <div class="project-nums">
+                    <div class="pnum">
+                        <div class="pnum-val">+40</div>
+                        <div class="pnum-label">Escolas</div>
+                    </div>
+                    <div class="pnum">
+                        <div class="pnum-val">11</div>
+                        <div class="pnum-label">Províncias</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-body">
+                <div class="deliv-grid">
+                    <div class="deliv-item">
+                        <div class="di-label">Papel da Wansati Lab</div>
+                        <strong>Co-desenvolvimento & Execução</strong>
+                        <p>Criação dos materiais didáticos e entrega dos bootcamps práticos em campo.</p>
+                    </div>
+                    <div class="deliv-item">
+                        <div class="di-label">Modelo Pedagógico</div>
+                        <strong>100% Presencial</strong>
+                        <p>Oficinas estruturadas focadas em lógica e introdução ao desenvolvimento.</p>
+                    </div>
+                    <div class="deliv-item">
+                        <div class="di-label">Metodologia Baseada em Género</div>
+                        <strong>Espaços Seguros</strong>
+                        <p>Implementação de abordagens pedagógicas inclusivas e seguras, desenhadas estruturalmente para
+                            mitigar as barreiras sociais.</p>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-slot">
+                        <img src="assets/img/cg1.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                    <div class="gallery-slot">
+                        <img src="assets/img/cg2.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                    <div class="gallery-slot">
+                        <img src="assets/img/cg1.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                    <div class="gallery-slot">
+                        <img src="assets/img/cg2.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CODE LIKE A GIRL -->
+        <div class="project-block">
+            <div class="project-header green-bg">
+                <div>
+                    <div class="project-tag">Iniciativa STEM</div>
+                    <h3>Code Like a Girl</h3>
+                    <p>Iniciativa que aborda a baixa representatividade das mulheres nas áreas de Ciência, Tecnologia,
+                        Engenharia e Matemática (STEM). Juntamente com a MozDevz, lideramos a execução técnica deste
+                        programa nacional.</p>
+                </div>
+                <div class="project-nums">
+                    <div class="pnum">
+                        <div class="pnum-val">5.000<sup>+</sup></div>
+                        <div class="pnum-label">Jovens</div>
+                    </div>
+                    <!-- <div class="pnum"><div class="pnum-val">500<sup>+</sup></div><div class="pnum-label">Mulheres</div></div> -->
+                </div>
+            </div>
+            <div class="project-body">
+                <div class="deliv-grid">
+                    <div class="deliv-item">
+                        <div class="di-label">Foco Principal</div>
+                        <strong>Raparigas & STEM</strong>
+                        <p>Treino intensivo para quebra da barreira de género no ecossistema tecnológico.</p>
+                    </div>
+                    <div class="deliv-item">
+                        <div class="di-label">Conteúdos</div>
+                        <strong>Adaptados Localmente</strong>
+                        <p>Currículo adaptado pela equipa técnica da Wansati Lab para a realidade escolar das
+                            províncias.</p>
+                    </div>
+                    <div class="deliv-item">
+                        <div class="di-label">Metodologia Baseada em Género</div>
+                        <strong>Espaços Seguros</strong>
+                        <p>Implementação de abordagens pedagógicas inclusivas e seguras, desenhadas estruturalmente para
+                            mitigar as barreiras sociais.</p>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-slot">
+                        <img src="assets/img/clg1.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                    <div class="gallery-slot">
+                        <img src="assets/img/clg2.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                    <div class="gallery-slot">
+                        <img src="assets/img/clg3.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                    <div class="gallery-slot">
+                        <img src="assets/img/clg4.jpeg" alt="Code Like a Girl" class="preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DJANGO GIRLS -->
+        <div class="project-block">
+            <div class="project-header teal-bg">
+                <div>
+                    <div class="project-tag">Global · djangogirls.org</div>
+                    <h3>Django Girls Moçambique</h3>
+                    <p>Iniciativa global sem fins lucrativos que oferece workshops gratuitos de programação para
+                        mulheres. A Wansati Lab coordena o capítulo nacional, acumulando um histórico sólido de execução
+                        regional.</p>
+                </div>
+                <div class="project-nums">
+                    <div class="pnum">
+                        <div class="pnum-val">13</div>
+                        <div class="pnum-label">Edições</div>
+                    </div>
+                    <div class="pnum">
+                        <div class="pnum-val">100%</div>
+                        <div class="pnum-label">Gratuito</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-body">
+                <div class="deliv-grid">
+                    <div class="deliv-item">
+                        <div class="di-label">Formato</div>
+                        <strong>Workshop Intensivo</strong>
+                        <p>Do zero ao deployment de aplicações web utilizando Python e Django em ambiente prático.</p>
+                    </div>
+                    <div class="deliv-item">
+                        <div class="di-label">Impacto</div>
+                        <strong>Comunidade Ativa</strong>
+                        <p>Criação de uma rede de suporte de engenheiras e mentoras.</p>
+                    </div>
+                    <div class="deliv-item">
+                        <div class="di-label">Metodologia Baseada em Género</div>
+                        <strong>Espaços Seguros</strong>
+                        <p>Implementação de abordagens pedagógicas inclusivas e seguras, desenhadas estruturalmente para
+                            mitigar as barreiras sociais.</p>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-slot">
+                        <img src="assets/img/dg_maxixe1.jpeg" alt="Django Girls Maxixe 2023" class="preview">
+                    </div>
+                    <div class="gallery-slot" title="Clique para fazer upload">
+                        <img src="assets/img/dg_maxixe2.jpeg" alt="Django Girls Maxixe" class="preview">
+                    </div>
+                    <div class="gallery-slot" title="Clique para fazer upload">
+                        <img src="assets/img/dg_matola1.jpeg" alt="Django Girls Matola" class="preview">
+                    </div>
+                    <div class="gallery-slot" title="Clique para fazer upload">
+                        <img src="assets/img/dg_beira1.jpeg" alt="Django Girls Beira" class="preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DE SUCESSO -->
+    <section id="casos">
+        <span class="section-eyebrow">Histórias Reais</span>
+        <h2 class="section-title">Casos de Sucesso</h2>
+        <p class="section-lead">Transformação prática documentada a partir das nossas ações de capacitação em campo.</p>
+        <div class="caso-grid">
+            <!-- CARD 1 -->
+            <div class="caso-card">
+                <div class="caso-img c1">
+                    <div class="caso-img-label">Coding Girls</div>
+                    <span class="material-symbols-out-custom caso-img-icon">terminal</span>
+                    <div class="caso-gallery" title="Clique para substituir esta imagem">
+                        <input type="file" accept="image/*" onchange="previewCaso(this)">
+                    </div>
+                </div>
+                <div class="caso-body">
+                    <div class="eyebrow">Nampula → Maputo</div>
+                    <h4>Da Escola Secundária ao Mercado Tecnológico</h4>
+                    <p>Participante do Coding Girls em Nampula aprendeu os fundamentos de engenharia Web e progrediu
+                        para estágios corporativos na capital.</p>
+                    <div class="caso-quote">
+                        <p>"Nunca imaginei que a engenharia de software fosse um espaço acessível para mim. O bootcamp
+                            mudou os meus objetivos."</p>
+                        <span>— Beneficiária, Nampula</span>
+                    </div>
+                </div>
+            </div>
+            <!-- CARD 2 -->
+            <div class="caso-card">
+                <div class="caso-img c2">
+                    <div class="caso-img-label">Code Like a Girl</div>
+                    <span class="material-symbols-out-custom caso-img-icon">diversity_1</span>
+                    <div class="caso-gallery" title="Clique para substituir esta imagem">
+                        <input type="file" accept="image/*" onchange="previewCaso(this)">
+                    </div>
+                </div>
+                <div class="caso-body">
+                    <div class="eyebrow">Efeito Multiplicador</div>
+                    <h4>De Formanda a Mentora de Comunidade</h4>
+                    <p>Após concluir as trilhas de capacitação STEM, integrou-se como coach voluntária na Beira para
+                        transferir competências a novas raparigas.</p>
+                    <div class="caso-quote">
+                        <p>"O impacto real acontece quando uma mulher capacitada decide abrir as portas para as próximas
+                            que virão."</p>
+                        <span>— Coach Voluntária, Sofala</span>
+                    </div>
+                </div>
+            </div>
+            <!-- CARD 3 -->
+            <div class="caso-card">
+                <div class="caso-img c3">
+                    <div class="caso-img-label">Django Girls MZ</div>
+                    <span class="material-symbols-out-custom caso-img-icon">deployed_code</span>
+                    <div class="caso-gallery" title="Clique para substituir esta imagem">
+                        <input type="file" accept="image/*" onchange="previewCaso(this)">
+                    </div>
+                </div>
+                <div class="caso-body">
+                    <div class="eyebrow">Maputo</div>
+                    <h4>Primeira Aplicação Web Publicada do Zero</h4>
+                    <p>Sem bases prévias de computação, estruturou e colocou em produção uma arquitetura funcional em
+                        Python em menos de 24 horas.</p>
+                    <div class="caso-quote">
+                        <p>"Ver a minha aplicação funcional na Web deu-me a certeza de que a tecnologia é uma ferramenta
+                            de autonomia económica."</p>
+                        <span>— Participante, Edição Maputo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPACTO -->
+    <section id="impacto">
+        <span class="section-eyebrow">Métricas Consolidadas</span>
+        <h2 class="section-title">O Nosso Impacto</h2>
+        <div class="impact-numbers">
+            <div class="icard">
+                <div class="icard-num">5.000<sup>+</sup></div>
+                <div class="icard-desc">Jovens Instruídas em Tecnologias Base</div>
+            </div>
+            <div class="icard">
+                <div class="icard-num">800<sup>+</sup></div>
+                <div class="icard-desc">Mulheres Capacitadas em Python e Django</div>
+            </div>
+            <div class="icard">
+                <div class="icard-num">13</div>
+                <div class="icard-desc">Edições Nacionais Django Girls Concluídas</div>
+            </div>
+            <div class="icard">
+                <div class="icard-num">11</div>
+                <div class="icard-desc">Províncias Monitorizadas com Sucesso</div>
+            </div>
+        </div>
+        <div class="impact-cols">
+            <div>
+                <h3 style="font-family:'DM Serif Display',serif; font-size:1.4rem; margin-bottom:1.5rem;">Evolução
+                    Institucional</h3>
+                <div class="impact-timeline">
+                    <div class="tl-item">
+                        <div>
+                            <div class="tl-year">Fase 1</div>
+                            <div class="tl-dot"></div>
+                        </div>
+                        <div class="tl-content">
+                            <h5>Facilitação Local</h5>
+                            <p>Suporte e mentoria nos primeiros passos das comunidades de tecnologia em Moçambique.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div>
+                            <div class="tl-year">Fase 2</div>
+                            <div class="tl-dot"></div>
+                        </div>
+                        <div class="tl-content">
+                            <h5>Constituição Jurídica</h5>
+                            <p>Fundação da Wansati Lab como associação focada em inclusão de género e capacitação nas
+                                TICs.</p>
+                        </div>
+                    </div>
+                    <div class="tl-item">
+                        <div>
+                            <div class="tl-year">Fase 3</div>
+                            <div class="tl-dot"></div>
+                        </div>
+                        <div class="tl-content">
+                            <h5>Escalabilidade Nacional</h5>
+                            <p>Consolidação da parceria com a MozDevz para implementação em larga escala das iniciativas
+                                digitais.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 style="font-family:'DM Serif Display',serif; font-size:1.4rem; margin-bottom:1.5rem;">Distribuição
+                    das Áreas de Capacitação</h3>
+                <div class="impact-bars">
+                    <div class="bar-item">
+                        <div class="bar-header"><span>Coding Girls (Bootcamps Provinciais)</span><span
+                                class="bar-pct">25%</span></div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="25%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-header"><span>Code Like a Girl (Iniciativas STEM)</span><span
+                                class="bar-pct">45%</span></div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="45%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-header"><span>Django Girls (Python & Desenvolvimento Web)</span><span
+                                class="bar-pct">30%</span></div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="30%"></div>
+                        </div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-header"><span>Competências Transversais & Empregabilidade</span><span
+                                class="bar-pct">10%</span></div>
+                        <div class="bar-track">
+                            <div class="bar-fill" data-width="10%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARCEIROS -->
+    <section id="parceiros">
+        <span class="section-eyebrow">Ecossistema</span>
+        <h2 class="section-title">Parceiros & Colaborações</h2>
+        <div class="parceiros-grid">
+            <div class="parceiro-card" title="Clique para substituir o logo">
+                <input type="file" accept="image/*" onchange="previewCardPartner(this)">
+                <div class="parceiro-icon"><span>MozDevz</span></div>
+                <p>Cooperação direta na implementação técnica e mapeamento de talentos no setor informático.</p>
+                <div class="parceiro-type">Parceiro Operacional</div>
+            </div>
+            <div class="parceiro-card" title="Clique para substituir o logo">
+                <input type="file" accept="image/*" onchange="previewCardPartner(this)">
+                <div class="parceiro-icon"><span>h2n</span></div>
+                <p>Colaboração em projetos focados na melhoria de vida e comunicação comunitária descentralizada.</p>
+                <div class="parceiro-type">Parceiro de Impacto</div>
+            </div>
+            <div class="parceiro-card" title="Clique para substituir o logo">
+                <input type="file" accept="image/*" onchange="previewCardPartner(this)">
+                <div class="parceiro-icon"><span>Django Girls</span></div>
+                <p>Alinhamento internacional para transferência de currículos e capacitação web rápida.</p>
+                <div class="parceiro-type">Rede Global</div>
+            </div>
+            <div class="parceiro-card" title="Clique para substituir o logo">
+                <input type="file" accept="image/*" onchange="previewCardPartner(this)">
+                <div class="parceiro-icon"><span>PyLadies</span></div>
+                <p>Parceria ativa na mentoria de raparigas para especialização em ciência de dados e backend.</p>
+                <div class="parceiro-type">Comunidade Tecnológica</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPA -->
+    <section id="equipa">
+        <span class="section-eyebrow">Estrutura Operacional</span>
+        <h2 class="section-title">A Nossa Equipa</h2>
+        <div class="equipa-grid">
+            <!-- Membro 1 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Cecília Tivir</h4>
+                    <div class="role">Coordenação de Programas</div>
+                    <p>MSc. Computer Science • Investigadora em Learning Analytics e Inteligência Artificial Educativa.
+                    </p>
+                </div>
+            </div>
+            <!-- Membro 2 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Bibiacha Nhagutou</h4>
+                    <div class="role">Coordenação Operacional</div>
+                    <p>Licenciada em Gestão de Empresas e Investigadora de Pós-Graduação em Administração.</p>
+                </div>
+            </div>
+            <!-- Membro 3 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Sindia Chauque</h4>
+                    <div class="role">Desenvolvimento Técnico</div>
+                    <p>Engenheira Informática e de Telecomunicações, especialista em arquiteturas Cloud e Web.</p>
+                </div>
+            </div>
+            <!-- Membro 4 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Glória Govene</h4>
+                    <div class="role">Gestão de Projetos</div>
+                    <p>Licenciada em Ciências da Computação e especialista em integração de sistemas e APIs.</p>
+                </div>
+            </div>
+            <!-- Membro 5 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Wendy Ndlalane</h4>
+                    <div class="role">Infraestrutura Técnica</div>
+                    <p>Engenheira Informática dedicada ao planeamento de redes e otimização de sistemas digitais.</p>
+                </div>
+            </div>
+            <!-- Membro 6 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Sheila Guilamba</h4>
+                    <div class="role">Consultoria de Formação</div>
+                    <p>Engenheira Informática com especialização em metodologias ágeis de ensino informático.</p>
+                </div>
+            </div>
+            <!-- Membro 7 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Selma Albino</h4>
+                    <div class="role">Gestão Ágil</div>
+                    <p>Mestre em Engenharia Informática, IT Project Manager e Scrum Master Certificada.</p>
+                </div>
+            </div>
+            <!-- Membro 8 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Eneia Gazite</h4>
+                    <div class="role">Investigação Tecnológica</div>
+                    <p>Licenciada em Informática de Gestão e Investigadora em Sistemas Inteligentes.</p>
+                </div>
+            </div>
+            <!-- Membro 9 -->
+            <div class="equipa-card">
+                <div class="equipa-avatar">
+                    <span class="material-symbols-out-custom">account_circle</span>
+                    <div class="equipa-photo-slot" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewEquipa(this)">
+                    </div>
+                </div>
+                <div class="equipa-body">
+                    <h4>Leia Balane</h4>
+                    <div class="role">Suporte Operacional</div>
+                    <p>Engenheira especializada em manutenção técnica e estabilização de aplicações enterprise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos">
+        <span class="section-eyebrow">Testemunhos</span>
+        <h2 class="section-title">O Que Diz a Comunidade</h2>
+        <div class="dep-grid">
+            <div class="dep-card">
+                <div class="dep-quote-mark">"</div>
+                <blockquote>A Wansati Lab constrói pontes tangíveis entre as escolas das províncias e o mercado
+                    tecnológico, fornecendo referências reais de liderança feminina.</blockquote>
+                <div class="dep-author">
+                    <div class="dep-ava" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewAvatar(this)">
+                        <span class="material-symbols-out-custom" style="font-size:1.2rem;">person</span>
+                    </div>
+                    <div>
+                        <div class="dep-author-name">Parceiro de Ecossistema</div>
+                        <div class="dep-author-role">Representante TIC, Moçambique</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dep-card">
+                <div class="dep-quote-mark">"</div>
+                <blockquote>Construir e colocar em produção uma plataforma no Django Girls mudou totalmente a minha
+                    perceção sobre engenharia de computação. Hoje sigo a carreira académica na área.</blockquote>
+                <div class="dep-author">
+                    <div class="dep-ava" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewAvatar(this)">
+                        <span class="material-symbols-out-custom" style="font-size:1.2rem;">person</span>
+                    </div>
+                    <div>
+                        <div class="dep-author-name">Aluna de Engenharia</div>
+                        <div class="dep-author-role">Ex-Participante Django Girls</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dep-card">
+                <div class="dep-quote-mark">"</div>
+                <blockquote>Os materiais pedagógicos e a sensibilidade da equipa de formação garantem um índice de
+                    aproveitamento único nos bootcamps de campo.</blockquote>
+                <div class="dep-author">
+                    <div class="dep-ava" title="Clique para carregar foto">
+                        <input type="file" accept="image/*" onchange="previewAvatar(this)">
+                        <span class="material-symbols-out-custom" style="font-size:1.2rem;">person</span>
+                    </div>
+                    <div>
+                        <div class="dep-author-name">Coordenador de Projeto</div>
+                        <div class="dep-author-role">Monitoria STEM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta-section">
+        <span class="section-eyebrow">Próximos Passos</span>
+        <h2>Desenvolva o Futuro Connosco</h2>
+        <p>Estabeleça parcerias de impacto ou apoie os programas de inclusão digital conduzidos pela Wansati Lab em
+            Moçambique.</p>
+        <div class="cta-btns">
+            <a href="mailto:wansatilab@gmail.com" class="btn-gold">Contactar a Wansati Lab</a>
+            <a href="https://djangogirls.org" target="_blank" class="btn-outline-w">Rede Django Girls</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-brand">Wansati Lab</div>
+        <div class="footer-center">Moçambique · Inclusão de Género nas TICs<br>© 2026 Wansati Lab. Todos os direitos
+            reservados.</div>
+        <ul class="footer-links">
+            <li><a href="https://djangogirls.org" target="_blank">Django Girls</a></li>
+            <li><a href="mailto:wansatilab@gmail.com">E-mail</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // Animação das Barras de Impacto com IntersectionObserver
+        document.addEventListener("DOMContentLoaded", () => {
+            const fillBars = document.querySelectorAll('.bar-fill');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        bar.style.width = bar.getAttribute('data-width');
+                        observer.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fillBars.forEach(bar => observer.observe(bar));
+        });
+
+        // Manipuladores de Upload de Imagem Remanescentes (Apenas para Blocos Permitidos)
+        function previewPartner(input) {
+            if (!input.files || !input.files[0]) return;
+            const partnerNode = input.closest('.partner-logo');
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                let img = partnerNode.querySelector('img');
+                if (!img) {
+                    img = document.createElement('img');
+                    partnerNode.appendChild(img);
+                }
+                img.src = e.target.result;
+                const span = partnerNode.querySelector('span');
+                if (span) span.style.display = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewCardPartner(input) {
+            if (!input.files || !input.files[0]) return;
+            const iconDiv = input.closest('.parceiro-card').querySelector('.parceiro-icon');
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                let img = iconDiv.querySelector('img');
+                if (!img) {
+                    img = document.createElement('img');
+                    iconDiv.appendChild(img);
+                }
+                img.src = e.target.result;
+                const span = iconDiv.querySelector('span');
+                if (span) span.style.display = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewImg(input) {
+            if (!input.files || !input.files[0]) return;
+            const slot = input.closest('.gallery-slot');
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                let preview = slot.querySelector('img.preview');
+                if (!preview) {
+                    preview = document.createElement('img');
+                    preview.className = 'preview';
+                    slot.appendChild(preview);
+                }
+                preview.src = e.target.result;
+                const placeholder = slot.querySelector('.placeholder-logo');
+                if (placeholder) placeholder.style.display = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewCaso(input) {
+            if (!input.files || !input.files[0]) return;
+            const gallery = input.closest('.caso-gallery');
+            const container = gallery.closest('.caso-img');
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                let preview = gallery.querySelector('img.preview');
+                if (!preview) {
+                    preview = document.createElement('img');
+                    preview.className = 'preview';
+                    gallery.appendChild(preview);
+                }
+                preview.src = e.target.result;
+                const icon = container.querySelector('.caso-img-icon');
+                if (icon) icon.style.opacity = '0';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewEquipa(input) {
+            if (!input.files || !input.files[0]) return;
+            const slot = input.closest('.equipa-photo-slot');
+            const avatarCard = slot.closest('.equipa-avatar');
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                let preview = slot.querySelector('img.preview');
+                if (!preview) {
+                    preview = document.createElement('img');
+                    preview.className = 'preview';
+                    slot.appendChild(preview);
+                }
+                preview.src = e.target.result;
+                const icon = avatarCard.querySelector('.material-symbols-out-custom');
+                if (icon) icon.style.opacity = '0';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function previewAvatar(input) {
+            if (!input.files || !input.files[0]) return;
+            const container = input.closest('.dep-ava');
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                let preview = container.querySelector('img.preview');
+                if (!preview) {
+                    preview = document.createElement('img');
+                    preview.className = 'preview';
+                    container.appendChild(preview);
+                }
+                preview.src = e.target.result;
+                const icon = container.querySelector('.material-symbols-out-custom');
+                if (icon) icon.style.opacity = '0';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+</body>
+
+</html>
